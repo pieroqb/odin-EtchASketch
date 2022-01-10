@@ -1,0 +1,21 @@
+
+body {
+    background-color: midnightblue;
+}
+
+header {
+    color: whitesmoke;
+    font-size: 24px;
+    text-align: center;
+    padding: 12px;
+}
+
+.container {
+    margin: auto;
+    display: grid;
+    gap: 2px;
+}
+
+.container div {
+    background-color: whitesmoke;
+}
