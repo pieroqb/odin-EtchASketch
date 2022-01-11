@@ -1,9 +1,7 @@
 const container = document.querySelector(".container");
 let dimension = 16;
-let area = 640;
+let painting = false;
 
-container.style.width = `${dimension*(area/dimension)}px`;
-container.style.height = `${dimension*(area/dimension)}px`;
 container.style.gridTemplate= `repeat(${dimension}, 1fr) / repeat(${dimension}, 1fr)`;
 
 for (let i = 0; i < dimension; i++)
@@ -14,3 +12,13 @@ for (let i = 0; i < dimension; i++)
         container.appendChild(cell);  
     }
 }
+
+container.addEventListener("click", (e)=>{ 
+    painting = !painting;
+    e.target.style.backgroundColor = "black";
+});
+
+container.addEventListener('mouseover', (e) => {
+    if (painting)
+    e.target.style.backgroundColor = "black";   
+});

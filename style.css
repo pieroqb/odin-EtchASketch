@@ -13,6 +13,8 @@ header {
 .container {
     margin: auto;
     display: grid;
+    width: 640px;
+    height: 640px;
     gap: 2px;
 }
 
