@@ -1,15 +1,31 @@
 const container = document.querySelector(".container");
-let dimension = 16;
+const clearButton = document.querySelector(".clear-button")
+
+createGrid(container,16);
 let painting = false;
 
-container.style.gridTemplate= `repeat(${dimension}, 1fr) / repeat(${dimension}, 1fr)`;
+const size16Button = document.querySelector(".button-size-16");
+const size32Button = document.querySelector(".button-size-32");
+const size64Button = document.querySelector(".button-size-64");
 
-for (let i = 0; i < dimension; i++)
-{
-    for (let j = 0; j < dimension; j++)
+
+function deleteGrid(grid){
+    const cells = document.querySelectorAll(".container > div")
+    cells.forEach((cell)=>{
+        grid.removeChild(cell);
+    });
+}
+
+function createGrid(grid, size){
+    deleteGrid(container);
+    grid.style.gridTemplate = `repeat(${size}, 1fr) / repeat(${size}, 1fr)`;
+    for (let i = 0; i < size; i++)
     {
-        const cell = document.createElement("div");
-        container.appendChild(cell);  
+        for (let j = 0; j < size; j++)
+        {
+            const cell = document.createElement("div");
+            grid.appendChild(cell);  
+        }
     }
 }
 
@@ -18,7 +34,26 @@ container.addEventListener("click", (e)=>{
     e.target.style.backgroundColor = "black";
 });
 
-container.addEventListener('mouseover', (e) => {
+container.addEventListener("mouseover", (e) => {
     if (painting)
     e.target.style.backgroundColor = "black";   
+});
+
+clearButton.addEventListener("click", ()=>{
+    const cells = document.querySelectorAll(".container > div")
+    cells.forEach((cell)=>{
+        cell.style.backgroundColor = "whitesmoke";
+    });
+});
+
+size16Button.addEventListener("click", ()=>{
+    createGrid(container,16);
+});
+
+size32Button.addEventListener("click", ()=>{
+    createGrid(container,32);
+});
+
+size64Button.addEventListener("click", ()=>{
+    createGrid(container,64);
 });

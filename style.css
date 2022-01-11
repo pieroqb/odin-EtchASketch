@@ -13,11 +13,22 @@ header {
 .container {
     margin: auto;
     display: grid;
-    width: 640px;
-    height: 640px;
-    gap: 2px;
+    width: 704px;
+    height: 704px;
+    gap: 1px;
 }
 
 .container div {
     background-color: whitesmoke;
+}
+
+.controls {
+    padding: 16px;
+    text-align: center;
+}
+
+.controls button {
+    font-size: 16px;
+    padding: 8px;
+    border-radius: 8px;
 }
