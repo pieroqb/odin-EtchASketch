@@ -1,8 +1,10 @@
 const container = document.querySelector(".container");
 const clearButton = document.querySelector(".clear-button");
-const slider = document.querySelector("#size-slider");
-const sliderLabel = document.querySelector("#size-slider-value");
-const randomColorBUtton = document.querySelector(".random-color-button");
+const sizeSlider = document.querySelector("#size-slider");
+const sizeSliderLabel = document.querySelector("#size-slider-value");
+const defaultColorButton = document.querySelector(".default-color-button");
+const randomColorButton = document.querySelector(".random-color-button");
+const customColorPicker = document.querySelector("#custom-color-picker");
 
 createGrid(container,16);
 
@@ -75,12 +77,21 @@ clearButton.addEventListener("click", ()=>{
     });
 });
 
-randomColorBUtton.addEventListener("click", ()=>{
+defaultColorButton.addEventListener("click", ()=>{
+    color = "default";
+});
+
+randomColorButton.addEventListener("click", ()=>{
     color = "random";
 });
 
-slider.addEventListener("input", ()=>{
-    sliderLabel.textContent=`${slider.value} x ${slider.value}`
-    createGrid(container,slider.value);
+customColorPicker.addEventListener("input", (e)=>{
+    color = customColorPicker.value;
+});
+
+
+sizeSlider.addEventListener("input", ()=>{
+    sizeSliderLabel.textContent=`${sizeSlider.value} x ${sizeSlider.value}`
+    createGrid(container,sizeSlider.value);
 });
 

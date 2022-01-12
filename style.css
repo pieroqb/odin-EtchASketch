@@ -1,3 +1,6 @@
+* {
+    font-family: Arial;
+}
 
 body {
     background-color: midnightblue;
@@ -9,7 +12,7 @@ header {
     font-weight: bold;
     text-align: center;
     padding: 12px;
-}
+}   
 
 .controls {
     color: whitesmoke;
