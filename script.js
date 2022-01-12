@@ -1,13 +1,10 @@
 const container = document.querySelector(".container");
-const clearButton = document.querySelector(".clear-button")
+const clearButton = document.querySelector(".clear-button");
+const slider = document.querySelector("#size-slider");
+const sliderLabel = document.querySelector("#size-slider-value")
 
 createGrid(container,16);
 let painting = false;
-
-const size16Button = document.querySelector(".button-size-16");
-const size32Button = document.querySelector(".button-size-32");
-const size64Button = document.querySelector(".button-size-64");
-
 
 function deleteGrid(grid){
     const cells = document.querySelectorAll(".container > div")
@@ -25,10 +22,6 @@ function createGrid(grid, size){
         {
             const cell = document.createElement("div");
 
-            cell.addEventListener("click", (e)=>{ 
-                painting = !painting;
-                e.target.style.backgroundColor = "black";
-            }); 
             cell.addEventListener("mouseover", (e) => {
                 if(painting)
                     e.target.style.backgroundColor = "black";   
@@ -39,6 +32,16 @@ function createGrid(grid, size){
     }
 }
 
+
+container.addEventListener("click", (e)=>{ 
+    painting = !painting;
+
+    if(e.target.className === "container") return;
+
+    e.target.style.backgroundColor = "black";
+
+}); 
+
 clearButton.addEventListener("click", ()=>{
     const cells = document.querySelectorAll(".container > div")
     cells.forEach((cell)=>{
@@ -46,14 +49,7 @@ clearButton.addEventListener("click", ()=>{
     });
 });
 
-size16Button.addEventListener("click", ()=>{
-    createGrid(container,16);
-});
-
-size32Button.addEventListener("click", ()=>{
-    createGrid(container,32);
-});
-
-size64Button.addEventListener("click", ()=>{
-    createGrid(container,64);
+slider.addEventListener("input", ()=>{
+    sliderLabel.textContent=`${slider.value} x ${slider.value}`
+    createGrid(container,slider.value);
 });

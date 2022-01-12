@@ -6,8 +6,41 @@ body {
 header {
     color: whitesmoke;
     font-size: 24px;
+    font-weight: bold;
     text-align: center;
     padding: 12px;
+}
+
+.controls {
+    color: whitesmoke;
+    font-size: 18px;
+    padding: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 128px;
+    
+}
+
+.controls-subtitle, 
+.slider-value {
+    text-align: center;
+}
+
+.slider-value {
+    font-size: 16px;
+    vertical-align: text-top
+}
+
+.controls button {
+    font-size: 16px;
+    border-radius: 8px;
+}
+
+.controls button, 
+.size-slider-container {
+    padding: 8px;
+    margin-top: 4px;
 }
 
 .container {
@@ -21,15 +54,4 @@ header {
 
 .container div {
     background-color: whitesmoke;
-}
-
-.controls {
-    padding: 16px;
-    text-align: center;
-}
-
-.controls button {
-    font-size: 16px;
-    padding: 8px;
-    border-radius: 8px;
 }

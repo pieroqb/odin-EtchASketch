@@ -11,12 +11,19 @@
         </header>
         <main>
             <section class="controls">
-                <button class="clear-button">
-                    Clear
-                </button>
-                <button class="button-size-16">16x16</button>
-                <button class="button-size-32">32x32</button>
-                <button class="button-size-64">64x64</button>
+                <div>
+                    <div class="controls-subtitle">Coloring</div>
+                    <button class="clear-button">
+                        Clear
+                    </button>   
+                </div>
+                <div> 
+                    <div class="controls-subtitle">Grid Size</div>
+                    <div class="size-slider-container"> 
+                        <input type="range" min="8" max="64" value="16" class="slider" id="size-slider">
+                        <label for="size-slider" class="slider-value" id="size-slider-value">16 x 16</label>
+                    </div>
+                </div>
             </section>
             <section class="container">
 
