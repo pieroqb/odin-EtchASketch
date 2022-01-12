@@ -24,20 +24,20 @@ function createGrid(grid, size){
         for (let j = 0; j < size; j++)
         {
             const cell = document.createElement("div");
-            grid.appendChild(cell);  
+
+            cell.addEventListener("click", (e)=>{ 
+                painting = !painting;
+                e.target.style.backgroundColor = "black";
+            }); 
+            cell.addEventListener("mouseover", (e) => {
+                if(painting)
+                    e.target.style.backgroundColor = "black";   
+            });
+
+            grid.appendChild(cell); 
         }
     }
 }
-
-container.addEventListener("click", (e)=>{ 
-    painting = !painting;
-    e.target.style.backgroundColor = "black";
-});
-
-container.addEventListener("mouseover", (e) => {
-    if (painting)
-    e.target.style.backgroundColor = "black";   
-});
 
 clearButton.addEventListener("click", ()=>{
     const cells = document.querySelectorAll(".container > div")

@@ -16,6 +16,7 @@ header {
     width: 704px;
     height: 704px;
     gap: 1px;
+    padding: 16px;
 }
 
 .container div {
