@@ -1,10 +1,13 @@
 const container = document.querySelector(".container");
 const clearButton = document.querySelector(".clear-button");
 const slider = document.querySelector("#size-slider");
-const sliderLabel = document.querySelector("#size-slider-value")
+const sliderLabel = document.querySelector("#size-slider-value");
+const randomColorBUtton = document.querySelector(".random-color-button");
 
 createGrid(container,16);
+
 let painting = false;
+let color = "default";
 
 function deleteGrid(grid){
     const cells = document.querySelectorAll(".container > div")
@@ -24,7 +27,7 @@ function createGrid(grid, size){
 
             cell.addEventListener("mouseover", (e) => {
                 if(painting)
-                    e.target.style.backgroundColor = "black";   
+                    e.target.style.backgroundColor = paint(color); 
             });
 
             grid.appendChild(cell); 
@@ -32,13 +35,36 @@ function createGrid(grid, size){
     }
 }
 
+function paint(color) {
+    switch (color)
+    {
+        case "default":
+            return "#000000";
+        break;
+        case "random":
+            return getRandomColor();
+        break;
+        default:
+            return color;
+        break;    
+    }
+}
+
+function getRandomColor() {
+  var chars = '0123456789ABCDEF';
+  var color = '#';
+  for (var i = 0; i < 6; i++) {
+    color += chars[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
 
 container.addEventListener("click", (e)=>{ 
     painting = !painting;
 
     if(e.target.className === "container") return;
 
-    e.target.style.backgroundColor = "black";
+    e.target.style.backgroundColor = paint(color);
 
 }); 
 
@@ -49,7 +75,12 @@ clearButton.addEventListener("click", ()=>{
     });
 });
 
+randomColorBUtton.addEventListener("click", ()=>{
+    color = "random";
+});
+
 slider.addEventListener("input", ()=>{
     sliderLabel.textContent=`${slider.value} x ${slider.value}`
     createGrid(container,slider.value);
 });
+

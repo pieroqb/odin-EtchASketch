@@ -18,18 +18,18 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 128px;
-    
+    gap: 128px;  
+}
+
+.color-picker {
+    width: 100%;  
 }
 
 .controls-subtitle, 
 .slider-value {
     text-align: center;
-}
-
-.slider-value {
-    font-size: 16px;
-    vertical-align: text-top
+    vertical-align: text-top;
+    font-size: 18px;    
 }
 
 .controls button {
@@ -38,9 +38,9 @@ header {
 }
 
 .controls button, 
-.size-slider-container {
+.input-container {
     padding: 8px;
-    margin-top: 4px;
+    margin-top: 8px;
 }
 
 .container {
